@@ -8,25 +8,27 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Healthcare Translation App</h1>
+        <h2>Healthcare Translation Web App - Nao Medical</h2>
         <div class="row">
             <div class="col-md-6">
-                <h3>Original Text</h3>
-                <textarea id="originalText" class="form-control" rows="5"></textarea>
-                <button id="startRecord" class="btn btn-primary mt-2">Start Recording</button>
-                <button id="stopRecord" class="btn btn-danger mt-2">Stop Recording</button>
+                <h4>Input Text</h4>
+                <textarea id="originalText" class="form-control" rows="4"></textarea>
+                <button id="startRecord" class="btn btn-primary mt-2">Start</button>
+                <button id="stopRecord" class="btn btn-danger mt-2">Stop</button>
             </div>
             <div class="col-md-6">
-                <h3>Translated Text</h3>
-                <textarea id="translatedText" class="form-control" rows="5" readonly></textarea>
+                <h4>Translated Text</h4>
+                <textarea id="translatedText" class="form-control" rows="8" readonly></textarea>
                 <select id="languageSelect" class="form-select mt-2">
                     <option value="Spanish">Spanish</option>
+                    <option value="English">English</option>  
                     <option value="French">French</option>
                     <option value="German">German</option>
                 </select>
                 <button id="speakTranslated" class="btn btn-success mt-2">Speak Translated Text</button>
             </div>
         </div>
+        <h6>Developed by Jesus Bermudez Zamora</h6>
     </div>
 
     <script>
