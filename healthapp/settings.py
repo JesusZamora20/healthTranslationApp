@@ -19,13 +19,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qx)a8d-8*627#_j%-6v$sy*)v5%06&wf+t)b+6inhd&2l*2w(m'
-
+SECRET_KEY = os.getenv("SECRET_KEY")
+#'django-insecure-qx)a8d-8*627#_j%-6v$sy*)v5%06&wf+t)b+6inhd&2l*2w(m'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
 
 # Application definition
 
@@ -79,7 +78,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',}
 }
 
-DATABASES["default"]=dj_database_url.parse("postgresql://healthapp_db_user:moxLNMFZ6ptul2KfKBNySI31gnu0GoA5@dpg-cv1j7ptds78s73ducj80-a.oregon-postgres.render.com/healthapp_db")
+database_url = os.getenv("DATABASE_URL")
+DATABASES["default"]=dj_database_url.parse(database_url)
 
 
 
