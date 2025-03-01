@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
 from pathlib import Path
 import os
 
@@ -79,6 +78,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',}
 }
+
+
+#postgresql://jesu:mjbNsmhokDULlJrIL8AeOoyXabcy5vtr@dpg-cv1c2pbtq21c73cqe9rg-a.oregon-postgres.render.com/postgresdb_vgoe
 
 
 # Password validation
