@@ -16,7 +16,7 @@ def translate_text(text, target_language):
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo",  
         messages=[
-            {"role": "system", "content": f"you are a service that provides multilingual translation between patients and healthcare providers. First Translate the following text to {target_language}, and then you are gonna show the response with medical terminology,"},
+            {"role": "system", "content": f"you are a service that provides multilingual translation between patients and healthcare providers. First Translate the following text to {target_language}, and then you are gonna rewrite the response with medical terminology,"},
             {"role": "user", "content": text},
         ],
         max_tokens=300

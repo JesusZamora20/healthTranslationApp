@@ -15,6 +15,12 @@
             <div class="col-md-6">
                 <h4 class="text-primary">Input Text</h4>
                 <textarea id="originalText" class="form-control" rows="4"></textarea>
+                <select id="inputLanguage" class="form-select mt-2">
+                    <option value="en-US">English</option>
+                    <option value="es-ES">Spanish</option>
+                    <option value="fr-FR">French</option>
+                    <option value="de-DE">German</option>
+                </select>
                 <button id="startRecord" class="btn btn-primary mt-2">Start</button>
                 <button id="stopRecord" class="btn btn-danger mt-2">Stop</button>
             </div>
@@ -36,7 +42,8 @@
     <script>
         const originalText = document.getElementById('originalText');
         const translatedText = document.getElementById('translatedText');
-        const languageSelect = document.getElementById('languageSelect');
+        const inputLanguage = document.getElementById('inputLanguage'); //input language selector
+        const languageSelect = document.getElementById('languageSelect'); //output language selector
         const startRecord = document.getElementById('startRecord');
         const stopRecord = document.getElementById('stopRecord');
         const speakTranslated = document.getElementById('speakTranslated');
@@ -46,7 +53,7 @@
             recognition = new webkitSpeechRecognition();
             recognition.continuous = true;
             recognition.interimResults = true;
-            recognition.lang = 'en-US';
+            recognition.lang = inputLanguage.value; //select initial language
 
             recognition.onresult = (event) => {
                 let transcript = '';
@@ -70,6 +77,10 @@
                 });
             };
         }
+
+        inputLanguage.addEventListener('change', () => {
+            recognition.lang = inputLanguage.value;
+        });
 
         startRecord.addEventListener('click', () => {
             recognition.start();
